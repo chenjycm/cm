@@ -12,6 +12,7 @@ $(document).ready(function(){
         		var mydate = new Date();
 	       	 	var ask_time= change_time(mydate);
 				var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
+	      	 	$("#answer").prepend($ask_ans);
 	      	 	var up_time=mydate.getTime();
 				var data = {name:ask_name,txt:ask_text,time:up_time};
 			  	$.ajax({
@@ -27,7 +28,7 @@ $(document).ready(function(){
 				    }
 				});
 
-	      	 	$("#answer").prepend($ask_ans);
+	      	 
 	      	 	$("#textarea1").val("");
 				$("#input_name").val("");
         	}
@@ -59,12 +60,28 @@ $(document).ready(function(){
 			$("#in_school").val("");
 			}
  	});
+
+ 	$("#button2").bind("click",function(){
+ 		var chat_text=$("#send_right").val();
+ 		alert(chat_text);
+ 		if(chat_text==""){ 
+ 			return;
+ 		}else{
+ 			var chat_name="游客";
+ 			var times= new Date();
+ 			var chat_time=change_time(times);
+ 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
+ 			$("#right2").append($chat_html);
+ 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
+ 		}	
+ 	});
+
+
+
 	   
 		FreshTime();
 		var sh;        
 		sh = setInterval(FreshTime, 1000); // 每秒钟执行一次
-
-		
 
 		$(document).on('click', '.tab',function(){
 			var $self = $(this);

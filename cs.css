@@ -168,7 +168,30 @@ html{
     margin: 10px 0 10px 10px;
 	}
 
+.container::-webkit-scrollbar {
+        width:10px;
+        height:10px;
 
+    }
+   .container::-webkit-scrollbar-button    {
+        background-color:#423b40;
+    }
+   .container::-webkit-scrollbar-track     {
+        background:#423b40;
+    }
+    .container::-webkit-scrollbar-track-piece {
+        background:url(http://www.lyblog.net/wp/wp-content/themes/mine/img/stripes_tiny_08.png);
+    }
+    .container::-webkit-scrollbar-thumb{
+        background:#31303a;
+        border-radius:4px;
+    }
+    .container::-webkit-scrollbar-corner {
+        background:#496495;
+    }
+/*   .container::-webkit-scrollbar-resizer  {
+        background:#FF0BEE;
+    }*/
 .lists
 {
     height: 98px;
@@ -398,8 +421,31 @@ html{
 	list-style: none;
 	margin:0;
 	padding:0;
-	
 }
+#right2::-webkit-scrollbar {
+        width:10px;
+        height:10px;
+        
+    }
+#right2::-webkit-scrollbar-button    {
+        background-color:#423b40;
+}
+#right2::-webkit-scrollbar-track     {
+        background:#423b40;
+}
+#right2::-webkit-scrollbar-track-piece {
+        background:url(http://www.lyblog.net/wp/wp-content/themes/mine/img/stripes_tiny_08.png);
+}
+#right2::-webkit-scrollbar-thumb{
+        background:#31303a;
+        border-radius:4px;
+}
+    .container::-webkit-scrollbar-corner {
+        background:#496495;
+}
+/*   .container::-webkit-scrollbar-resizer  {
+        background:#FF0BEE;
+    }*/
 .chats{
     height:auto;
 	width:190px;
@@ -447,13 +493,13 @@ html{
 	width:240px;
 	/*background-color:green;*/
 }
-.send-right{
+#send_right{
 	width:178px;
 	height:36px;
 	border:0;
 	font-family:"Microsoft YaHei";
 }
-.button2{
+#button2{
 	width: 58px;
     height: 38px;
 	border:0;
