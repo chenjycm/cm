@@ -388,11 +388,12 @@ html{
     height: 38px;
     margin: 8px 0 0 16px;
     border: 0;
-	 font-size: 19px;
+	font-size: 19px;
     background-color: #2194EF;
     color: white;
-   	 font-family:"Microsoft YaHei";
-	}
+   	font-family:"Microsoft YaHei";
+   	cursor: pointer;
+}
 
 .right-up{
 	height:500px;
@@ -494,10 +495,12 @@ html{
 	/*background-color:green;*/
 }
 #send_right{
-	width:178px;
+	width:169px;
 	height:36px;
 	border:0;
 	font-family:"Microsoft YaHei";
+	padding-left: 8px;
+	outline: none;
 }
 #button2{
 	width: 58px;
@@ -506,6 +509,7 @@ html{
 	background-color: #2194EF;
     color: white;
    	font-family:"Microsoft YaHei";
+   	cursor: pointer;
 }
 .main{
 	width:764px;
@@ -593,6 +597,7 @@ html{
     outline: none;
     border: 0;
     margin: 3px 10px 0 0;
+    cursor: pointer;
 }
 #answer{
 	height:auto;
@@ -700,6 +705,7 @@ html{
 	height:40px;
 	width:272px;
 	margin:50px 0 0 240px;
+	cursor: pointer;
 
 }
 .button4{
@@ -709,6 +715,7 @@ html{
 	border:0;
 	color:white;
 	font-family: inherit;
+	cursor: pointer;
 }
 .button5{
 	height:35px;
@@ -717,6 +724,7 @@ html{
 	color:#848484;
 	font-family: inherit;
 	background-color: white;
+	cursor: pointer;
 }
 .button6{
 	height:35px;
@@ -725,6 +733,7 @@ html{
 	color:#848484;
 	font-family: inherit;
 	background-color: white;
+	cursor: pointer;
 }
 .right{
 	width:328px;

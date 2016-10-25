@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！")
     $("#button3").bind("click",function(){
        
         var ask_name=$('#input_name').val();
@@ -11,8 +12,7 @@ $(document).ready(function(){
         	}else{
         		var mydate = new Date();
 	       	 	var ask_time= change_time(mydate);
-				var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
-	      	 	$("#answer").prepend($ask_ans);
+				
 	      	 	var up_time=mydate.getTime();
 				var data = {name:ask_name,txt:ask_text,time:up_time};
 			  	$.ajax({
@@ -21,12 +21,15 @@ $(document).ready(function(){
 				    data:data,
 				    success: function(res){
 				      console.log(res);
+				      var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
+	      	 		  $("#answer").prepend($ask_ans);
 				    },
 				    error: function(err){
 				      console.log('error:',err);
 				      alert("网络故障，提问未提交");
 				    }
 				});
+
 
 	      	 
 	      	 	$("#textarea1").val("");
@@ -63,7 +66,6 @@ $(document).ready(function(){
 
  	$("#button2").bind("click",function(){
  		var chat_text=$("#send_right").val();
- 		alert(chat_text);
  		if(chat_text==""){ 
  			return;
  		}else{
@@ -146,6 +148,6 @@ $.ajax({
 });
 
 function change_time(t){
-	var a=t.getFullYear()+"-"+t.getMonth()+"-"+t.getDate()+" "+t.getHours()+":"+t.getMinutes();
+	var a=t.getFullYear()+"-"+(t.getMonth()+1)+"-"+t.getDate()+" "+t.getHours()+":"+t.getMinutes();
 	return a; 
 }
