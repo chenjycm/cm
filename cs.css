@@ -277,6 +277,7 @@ html{
 	font-family:"Microsoft YaHei";
 	font-size:15px;
 	padding-left:8px;
+	outline: none;
 }
 
 
@@ -295,6 +296,7 @@ html{
     margin-left: 8px;
 	border: 0;
 	font-family:"Microsoft YaHei";
+	outline: none;
 }
 
 /*
@@ -314,6 +316,7 @@ html{
 	font-family:"Microsoft YaHei";
 	font-size:15px;
 	padding-left:8px;
+	outline: none;
 }
 
 #in_email{
@@ -324,6 +327,7 @@ html{
 	font-family:"Microsoft YaHei";
 	font-size:15px;
 	padding-left:8px;
+	outline: none;
 }
 
 #in_major{
@@ -334,6 +338,7 @@ html{
 	font-family:"Microsoft YaHei";
 	font-size:15px;
 	padding-left:8px;
+	outline: none;
 }
 
 #in_edu{
@@ -342,6 +347,7 @@ html{
     margin-left: 8px;
 	border: 0;
 	font-family:"Microsoft YaHei";
+	outline: none;
 }
 #in_school{
 	width: 347px;
@@ -351,6 +357,7 @@ html{
 	font-family:"Microsoft YaHei";
 	font-size:15px;
 	padding-left:8px;
+	outline: none;
 }
 
 #button1{
@@ -513,16 +520,20 @@ html{
 	width:736px;
 	margin:12px 14px 0 12px;
 	font-size:14px;
-	color:#adadad;
+	/*color:#adadad;*/
 	background-color:#ffffff;
 	font-family:"微软雅黑";
+	padding-left: 8px;
+	outline: none;
 }
 
 #input_name{
 	margin: 4px 0 0 12px;
+	padding-left: 8px;
     font-size: 14px;
     height: 27px;
     font-family:"微软雅黑";
+    outline: none;
 }
 #button3{
 	height: 36px;
