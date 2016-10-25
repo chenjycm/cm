@@ -9,6 +9,9 @@ body{
 /*	font-size:14px;
 */	}
 
+
+
+
 html{
 	font-family:"yahei"; 
 	box-sizing: border-box;}
@@ -575,6 +578,7 @@ html{
 	font-family:"微软雅黑";
 	padding-left: 8px;
 	outline: none;
+	resize:none;
 }
 
 #input_name{
