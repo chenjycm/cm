@@ -93,6 +93,7 @@ html{
 	 margin-left:6px;
 	 margin-top:28px;
 	 display: inline-block;
+	 border:none;
 	 }
 .share a{
      color:red;
@@ -127,6 +128,9 @@ html{
 	line-height:44px;
 	color:white;
 }
+.left1 a img{
+	border:none;
+}
 .left2{
 	width:248px;
 	height:312px;
@@ -145,6 +149,7 @@ html{
     font-size: 14px;
 	color:white;
 	list-style: none;
+	position:relative;
 }
 
 .tab.active{
@@ -169,6 +174,7 @@ html{
     /* background-color: yellow; */
     overflow-y: auto;
     margin: 10px 0 10px 10px;
+    position:relative;
 	}
 
 .container::-webkit-scrollbar {
@@ -261,17 +267,19 @@ html{
 	float:left;
 	 background: rgba(14, 10, 22, 0.5) ;
 	 filter:alpha(opacity=30); 
-	 
+	 position:relative;
 	}
 .start-date{
 	color:white;
 	font-size:26px;
 	margin:54px 0 0 180px;
+	position:relative;
 }
 #lefttime{
 	color:white;
 	font-size:24px;
 	margin:22px 0 32px 180px;
+	position: relative;
 	}
 #lefttime span{
     display: inline-block;
@@ -285,8 +293,11 @@ html{
 .midform{
 	margin:7px 0 0 100px;
 	color:#EFEFEF;
+	position:relative;
 	}
-
+.midform span{
+	vertical-align: middle;
+}
 /*.midinput{
 	width: 218px;
     height: 38px;
@@ -296,7 +307,7 @@ html{
 }*/
 
 #in_name{
-	width: 218px;
+	width: 242px;
     height: 38px;
     margin-left: 16px;
 	border: 0;
@@ -304,6 +315,7 @@ html{
 	font-size:15px;
 	padding-left:8px;
 	outline: none;
+	vertical-align: middle;
 }
 
 
@@ -317,12 +329,14 @@ html{
 }*/
 
 #in_gender{
-	width: 116px;
+	width: 93px;
     height: 39px;
     margin-left: 8px;
 	border: 0;
 	font-family:"Microsoft YaHei";
 	outline: none;
+	vertical-align: middle;
+	padding:10px 0;
 }
 
 /*
@@ -343,7 +357,9 @@ html{
 	font-size:15px;
 	padding-left:8px;
 	outline: none;
+	vertical-align: middle;
 }
+
 
 #in_email{
 	width: 347px;
@@ -354,10 +370,12 @@ html{
 	font-size:15px;
 	padding-left:8px;
 	outline: none;
+	vertical-align: middle;
 }
 
+
 #in_major{
-	width: 218px;
+	width: 242px;
     height: 38px;
     margin-left: 16px;
 	border: 0;
@@ -365,16 +383,22 @@ html{
 	font-size:15px;
 	padding-left:8px;
 	outline: none;
+	vertical-align: middle;
 }
 
+
 #in_edu{
-	width: 116px;
+	width: 93px;
     height: 39px;
     margin-left: 8px;
 	border: 0;
 	font-family:"Microsoft YaHei";
 	outline: none;
+	vertical-align: middle;
+	padding:10px 0;
 }
+
+
 #in_school{
 	width: 347px;
     height: 38px;
@@ -384,10 +408,12 @@ html{
 	font-size:15px;
 	padding-left:8px;
 	outline: none;
+	vertical-align: middle;
+
 }
 
 #button1{
-	width: 354px;
+	width: 355px;
     height: 38px;
     margin: 8px 0 0 16px;
     border: 0;
@@ -396,6 +422,7 @@ html{
     color: white;
    	font-family:"Microsoft YaHei";
    	cursor: pointer;
+   	position:relative;
 }
 
 .right-up{
@@ -403,8 +430,11 @@ html{
 	width:236px;
 	margin:0;border:0;
 	float:left;
-	 background: rgba(14, 10, 22, 0.5) ;
-	 filter:alpha(opacity=30); 
+	background-color: #1E212B;
+	background: rgba(14, 10, 22,0.5) ;
+	filter:alpha(opacity=30); 
+    position: relative;
+
 	}
 
 .right1{
@@ -412,6 +442,7 @@ html{
     width: 236px;
     margin: 0;
     background-color: #000308;
+    position:relative;
 }
 .right1 span{
 	color:white;
@@ -425,6 +456,7 @@ html{
 	list-style: none;
 	margin:0;
 	padding:0;
+	position:relative;
 }
 #right2::-webkit-scrollbar {
         width:10px;
@@ -495,6 +527,7 @@ html{
 .right3{
 	height:36px;
 	width:240px;
+	position:relative;
 	/*background-color:green;*/
 }
 #send_right{
@@ -504,6 +537,8 @@ html{
 	font-family:"Microsoft YaHei";
 	padding-left: 8px;
 	outline: none;
+	vertical-align: middle;
+
 }
 #button2{
 	width: 58px;
@@ -513,6 +548,7 @@ html{
     color: white;
    	font-family:"Microsoft YaHei";
    	cursor: pointer;
+   	vertical-align: middle;
 }
 .main{
 	width:764px;
@@ -579,6 +615,7 @@ html{
 	padding-left: 8px;
 	outline: none;
 	resize:none;
+	overflow:auto;
 }
 
 #input_name{
@@ -587,7 +624,9 @@ html{
     font-size: 14px;
     height: 27px;
     font-family:"微软雅黑";
+  
     outline: none;
+
 }
 #button3{
 	height: 36px;
@@ -599,7 +638,7 @@ html{
     float: right;
     background-color: #2797ef;
     outline: none;
-    border: 0;
+    border: none;
     margin: 3px 10px 0 0;
     cursor: pointer;
 }

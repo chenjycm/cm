@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！")
+	
     $("#button3").bind("click",function(){
        
         var ask_name=$('#input_name').val();
@@ -93,7 +93,7 @@ $(document).ready(function(){
 			}
 		});
 				  
-		
+		alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");
 });		
 
 function FreshTime() {
