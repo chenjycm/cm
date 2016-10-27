@@ -449,6 +449,54 @@ html{
 	line-height:44px;
 	margin-left:20px;
 }
+#right_chat{
+	height: 456px;
+    width: 236px;
+	margin: 0;
+	padding: 0;
+	/*background-color: red;*/
+}
+#right_login_box{
+	/*height: 456px; */
+    width: 236px;
+    /* padding: 50% 1px; */
+    padding-bottom: 50% 1px;
+    padding-top: 180px;
+     position:relative;
+}
+	
+
+#right_login_box p{
+	margin-left: 13px;
+    font-size: 15px;
+    margin: 0px 0 10px 12px;
+}    
+
+#right_chat_box{
+	height: 456px;
+	width:236px;
+	margin: 0;
+	padding: 0;
+}
+#chat_name_in{
+	height: 29px;
+    width: 155px;
+    margin: 0 0 0 8px;
+    border: 0;
+    padding-left: 7px;
+    font-family: "Microsoft YaHei";
+    vertical-align: middle;
+    outline: none;
+}
+#button_chatname{
+    height: 31px;
+    width: 54px;
+    background-color: #2194EF;
+    color: white;
+    font-family: "Microsoft YaHei";
+    border: 0;
+    vertical-align: middle;
+}
 #right2{
 	height:418px;
 	width:236px;

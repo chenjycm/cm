@@ -89,7 +89,8 @@
 	  <!--  仅剩<span id="r_days">0</span>天<span id="r_hour">0</span>时<span id="r_minute">0</span><span id="r_second">0</span>分 -->
 	   </p>
 	   <ul style="list-style-type: none;">
-			<li class="midform"><span>姓名</span> 
+			<li class="midform">
+					<span>姓名</span> 
 					<input id="in_name"type="text" name="IDname" placeholder="请输入姓名" />
 					<select id="in_gender"name="gender">
 						<option value="" >请选择性别</option>
@@ -130,36 +131,48 @@
 		<div class="right1">    <!--左边上部分-->
 			<span>聊天区</span>
 		</div>
-		<ul id="right2">
-			<li class="chats">
-				<p class="jiabin">嘉宾</p>直播下午开始<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-			<li class="chats">
-				<p class="zhuchiren">主持人</p>直播下午4点就开始，同学们做好准备啊！<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-			<li class="chats">
-				<p class="xuesheng">李三</p>好的好的<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-			<li class="chats">
-				<p class="xuesheng">王老八</p>好的好的<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-			<li class="chats">
-				<p class="xuesheng">佛爷</p>好的好的<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-			<li class="chats">
-				<p class="xuesheng">佛爷</p>好的好的<br/>
-				<p class="time-right">2016-9-25 22:42</p>
-			</li>
-		</ul>
-		<div class="right3"><input id="send_right" type="text" name="text-right"/><input id="button2" type="button" value="发送">
-		</div>   
-   
+			
+		
+		<div id="right_chat" >
+			<div id="right_login_box" >
+				<p>请输入你的聊天昵称</p>
+				<input id="chat_name_in" type="text" placeholder="请输入昵称"/>
+				<input id="button_chatname" type="button" value="提交" />
+			</div>	
+			<div id="right_chat_box" style="display:none;">
+				<ul id="right2" ">
+					<li class="chats">
+						<p class="jiabin">嘉宾</p>直播下午开始<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+					<li class="chats">
+						<p class="zhuchiren">主持人</p>直播下午4点就开始，同学们做好准备啊！<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+					<li class="chats">
+						<p class="xuesheng">李三</p>好的好的<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+					<li class="chats">
+						<p class="xuesheng">王老八</p>好的好的<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+					<li class="chats">
+						<p class="xuesheng">佛爷</p>好的好的<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+					<li class="chats">
+						<p class="xuesheng">佛爷</p>好的好的<br/>
+						<p class="time-right">2016-9-25 22:42</p>
+					</li>
+				</ul>
+				<div class="right3"><input id="send_right" type="text" name="text-right"/><input id="button2" type="button" value="发送">
+				</div>   
+			</div>
+   		</div>
    </div>     <!--右边聊天区-->
+  
+
    <div class="main">     <!--中间部分-->
 		<div class="main-introduce"><!--公司介绍标题及详细文字-->
 			<div class="introduce-title"><span>公司介绍</span></div>
