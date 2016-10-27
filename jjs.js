@@ -16,7 +16,7 @@ $(document).ready(function(){
 	      	 	var up_time=mydate.getTime();
 				var data = {name:ask_name,txt:ask_text,time:up_time};
 			  	$.ajax({
-			   	 	url:'http://115.28.10.122:8888/cmapis/post',
+			   	 	url:'/cmapis/post',
 			 	    type:'POST',
 				    data:data,
 				    success: function(res){
@@ -121,7 +121,7 @@ function FreshTime() {
 	
 	
 $.ajax({ 
-        url:'http://115.28.10.122:8888/cmapis/get',
+        url:'/cmapis/get',
         type:'GET',
         success: function(res){
             console.log(res);    //res就是一个对象数组，这里你就可以操作他了
