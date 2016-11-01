@@ -151,7 +151,7 @@ function FreshTime() {
 	
 	
 $.ajax({ 
-        url:'/cmapis/get',
+        url:'/cmapis/get?page=1&pageSize=10',
         type:'GET',
         success: function(res){
             console.log(res);    //res就是一个对象数组，这里你就可以操作他了
