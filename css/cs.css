@@ -2,19 +2,24 @@ body{
     font-family:"Microsoft YaHei";
     margin:0 auto;
 	color:white;
+    background:url(./image/back.jpg) no-repeat center top;
+}
+
+
 *{
 
 	font-family:"Microsoft YaHei";
 }
 /*	font-size:14px;
-*/	}
+*/	
 
 
 
 
 html{
 	font-family:"yahei"; 
-	box-sizing: border-box;}
+	box-sizing: border-box;
+}
 /*.div1{ 
 	position:fixed;
 	top:0; 

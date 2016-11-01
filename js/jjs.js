@@ -64,31 +64,61 @@ $(document).ready(function(){
 			}
  	});
 
- 	
+	$(function(){ 
+		$("#chat_name_in").keydown(function(event){ 
+			if(event.keyCode==13){ 
+			$("#button_chatname").click(); 
+			} 
+		}); 
 
-	$("#button_chatname").bind("click",function(){
+		$("#button_chatname").click(function(){ 
 			var chat_name_text=$("#chat_name_in").val();
-		console.log("聊天昵称："+chat_name_text);
-		if(chat_name_text==""){
-			alert("请输入昵称再发言！")
-			return;
-		}else{
-			$('#right_login_box,#right_chat_box').toggle();
+			console.log("聊天昵称："+chat_name_text);
+			if(chat_name_text==""){
+				alert("请输入昵称再发言！")
+				return;
+			}else{
+				$('#right_login_box,#right_chat_box').toggle();
+				
+				$("#button2").bind("click",function(){
+			 		var chat_text=$("#send_right").val();
+			 		if(chat_text==""){ 
+			 			return;
+			 		}else{
+			 			var times= new Date();
+			 			var chat_time=change_time(times);
+			 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
+			 			$("#right2").append($chat_html);
+			 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
+				 		}	
+				 });
+				}
+		}); 
+	}) 
+ 	
+	// $("#button_chatname").bind("click ",function(){
+	// 		var chat_name_text=$("#chat_name_in").val();
+	// 	console.log("聊天昵称："+chat_name_text);
+	// 	if(chat_name_text==""){
+	// 		alert("请输入昵称再发言！")
+	// 		return;
+	// 	}else{
+	// 		$('#right_login_box,#right_chat_box').toggle();
 			
-			$("#button2").bind("click",function(){
-		 		var chat_text=$("#send_right").val();
-		 		if(chat_text==""){ 
-		 			return;
-		 		}else{
-		 			var times= new Date();
-		 			var chat_time=change_time(times);
-		 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
-		 			$("#right2").append($chat_html);
-		 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
-			 		}	
-			 });
-			}
-	});
+	// 		$("#button2").bind("click",function(){
+	// 	 		var chat_text=$("#send_right").val();
+	// 	 		if(chat_text==""){ 
+	// 	 			return;
+	// 	 		}else{
+	// 	 			var times= new Date();
+	// 	 			var chat_time=change_time(times);
+	// 	 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
+	// 	 			$("#right2").append($chat_html);
+	// 	 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
+	// 		 		}	
+	// 		 });
+	// 		}
+	// });
 
 	   
 		FreshTime();
