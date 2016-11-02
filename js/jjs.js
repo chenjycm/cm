@@ -30,8 +30,6 @@ $(document).ready(function(){
 				    }
 				});
 
-
-	      	 
 	      	 	$("#textarea1").val("");
 				$("#input_name").val("");
         	}
@@ -79,7 +77,6 @@ $(document).ready(function(){
 				return;
 			}else{
 				$('#right_login_box,#right_chat_box').toggle();
-				
 				$("#button2").bind("click",function(){
 			 		var chat_text=$("#send_right").val();
 			 		if(chat_text==""){ 
@@ -90,35 +87,14 @@ $(document).ready(function(){
 			 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
 			 			$("#right2").append($chat_html);
 			 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
+			 			$("#send_right").val("");
 				 		}	
 				 });
 				}
 		}); 
 	}) 
  	
-	// $("#button_chatname").bind("click ",function(){
-	// 		var chat_name_text=$("#chat_name_in").val();
-	// 	console.log("聊天昵称："+chat_name_text);
-	// 	if(chat_name_text==""){
-	// 		alert("请输入昵称再发言！")
-	// 		return;
-	// 	}else{
-	// 		$('#right_login_box,#right_chat_box').toggle();
-			
-	// 		$("#button2").bind("click",function(){
-	// 	 		var chat_text=$("#send_right").val();
-	// 	 		if(chat_text==""){ 
-	// 	 			return;
-	// 	 		}else{
-	// 	 			var times= new Date();
-	// 	 			var chat_time=change_time(times);
-	// 	 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
-	// 	 			$("#right2").append($chat_html);
-	// 	 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
-	// 		 		}	
-	// 		 });
-	// 		}
-	// });
+	
 
 	   
 		FreshTime();
@@ -133,7 +109,7 @@ $(document).ready(function(){
 			}
 		});
 				  
-		alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");
+
 });		
 
 function FreshTime() {
@@ -148,44 +124,47 @@ function FreshTime() {
 	 // $("#lefttime").append(left_time);
 	document.getElementById("lefttime").innerHTML = "剩余<span>"+d+"</span> 天<span>" + h + "</span>小时<span>"  + m + "</span>分<span>" + s + "</span>秒";
 }      
-	
-	
-$.ajax({ 
-        url:'/cmapis/get?page=1&pageSize=10',
-        type:'GET',
-        success: function(res){
-            console.log(res);    //res就是一个对象数组，这里你就可以操作他了
-           	//console.log("时间转换："+getTime(res[0].ask.time));
-           	var tmp=new Array();
-		 	for(var i=0;i<res.length;i++){
-		 	    if('ans' in res[i]){
-		 			var ask_name = res[i].ask.name;
-					var ask_text = res[i].ask.txt;
-					var a1 = new Date(res[i].ask.time)
-					var ask_time = change_time(a1);  
-					var ans_name = res[i].ans.name;
-					var ans_text = res[i].ans.txt;
-					var a2 = new Date(res[i].ans.time)
-					var ans_time = change_time(a2);
-					var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div><div class='answer-big'><p class='answer-da'>答</p><div class='answer-text'><span class='answerer'>"+ans_name+"</span>"+ans_text+"<div class='ask-time'>"+ans_time+"</div></div></div></li>";
-					tmp.push($ask_ans);
-					//$("#answer").prepend($ask_ans);
-				}else{
-					var ask_name = res[i].ask.name;
-					var ask_text = res[i].ask.txt;
-					var b = new Date(res[i].ask.time)
-					var ask_time = change_time(b);
-					var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
-					//$("#answer").prepend($ask_ans);
-					tmp.push($ask_ans);
-				}				
-		 	}
-		 	$("#answer").prepend(tmp);
-        },
-        error: function(err){
-          console.log('error:',err);
-        }
-});
+alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
+// $(function(){
+// 	var pagenow = 1; 
+// 	$('.')
+		$.ajax({ 
+		        url:'/cmapis/get?page=2&pageSize=10',
+		        type:'GET',
+		        success: function(res){
+		            console.log(res.data.datas);    //res就是一个对象数组，这里你就可以操作他了
+		           	
+		             var tmp=new Array();
+				 	 for(var i=0;i<res.data.datas.length;i++){
+				      if('ans' in res.data.datas[i]){
+				 	 		var ask_name = res.data.datas[i].ask.name;
+							var ask_text = res.data.datas[i].ask.txt;
+							var a1 = new Date(res.data.datas[i].ask.time)
+							var ask_time = change_time(a1);  
+							var ans_name = res.data.datas[i].ans.name;
+							var ans_text = res.data.datas[i].ans.txt;
+							var a2 = new Date(res.data.datas[i].ans.time)
+							var ans_time = change_time(a2);
+							var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div><div class='answer-big'><p class='answer-da'>答</p><div class='answer-text'><span class='answerer'>"+ans_name+"</span>"+ans_text+"<div class='ask-time'>"+ans_time+"</div></div></div></li>";
+							tmp.push($ask_ans);
+							//$("#answer").prepend($ask_ans);
+						}else{
+							var ask_name = res.data.datas[i].ask.name;
+							var ask_text = res.data.datas[i].ask.txt;
+							var b = new Date(res.data.datas[i].ask.time)
+							var ask_time = change_time(b);
+							var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
+							//$("#answer").prepend($ask_ans);
+							tmp.push($ask_ans);
+						}				
+				 	}
+				 	$("#answer").prepend(tmp);
+		        },
+		        error: function(err){
+		          console.log('error:',err);
+		        }
+		});
+				
 
 function change_time(t){
 	var a=t.getFullYear()+"-"+(t.getMonth()+1)+"-"+t.getDate()+" "+t.getHours()+":"+t.getMinutes();

@@ -799,12 +799,14 @@ html{
 }
 .bottom-button{
 	height:40px;
-	width:272px;
-	margin:50px 0 0 240px;
-	cursor: pointer;
+	width:400px;
+	margin:50px auto;
+	text-align: center;
+	background-color: yellow;
+
 
 }
-.button4{
+.pagesshow{
 	height:35px;
 	width:35px;
 	background-color:#52636D;
@@ -813,7 +815,7 @@ html{
 	font-family: inherit;
 	cursor: pointer;
 }
-.button5{
+.pages{
 	height:35px;
 	width:35px;
 	border:1px solid #DDDCDF;
@@ -822,7 +824,16 @@ html{
 	background-color: white;
 	cursor: pointer;
 }
-.button6{
+.pagespre{
+	height:35px;
+	width:64px;
+	border:1px solid #DDDCDF;
+	color:#848484;
+	font-family: inherit;
+	background-color: white;
+	cursor: pointer;
+}
+.pagesnext{
 	height:35px;
 	width:64px;
 	border:1px solid #DDDCDF;
