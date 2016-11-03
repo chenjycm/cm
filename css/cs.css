@@ -799,22 +799,13 @@ html{
 }
 .bottom-button{
 	height:40px;
-	width:400px;
+	width:500px;
 	margin:50px auto;
 	text-align: center;
-	background-color: yellow;
+	/*background-color: yellow;*/
+}
 
 
-}
-.pagesshow{
-	height:35px;
-	width:35px;
-	background-color:#52636D;
-	border:0;
-	color:white;
-	font-family: inherit;
-	cursor: pointer;
-}
 .pages{
 	height:35px;
 	width:35px;
@@ -822,6 +813,16 @@ html{
 	color:#848484;
 	font-family: inherit;
 	background-color: white;
+	cursor: pointer;
+}
+
+.pages.active{
+	height:35px;
+	width:35px;
+	background-color:#52636D;
+	border:0;
+	color:white;
+	font-family: inherit;
 	cursor: pointer;
 }
 .pagespre{

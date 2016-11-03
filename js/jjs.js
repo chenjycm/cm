@@ -13,10 +13,10 @@ $(document).ready(function(){
         		var mydate = new Date();
 	       	 	var ask_time= change_time(mydate);
 				
-	      	 	var up_time=mydate.getTime();
+	      	 	var up_time=mydate.getTime();      //getTime是将Date数据转换成时间戳
 				var data = {name:ask_name,txt:ask_text,time:up_time};
 			  	$.ajax({
-			   	 	url:'/cmapis/post',
+			   	 	url:'/cmapis/postQues',
 			 	    type:'POST',
 				    data:data,
 				    success: function(res){
@@ -94,9 +94,7 @@ $(document).ready(function(){
 		}); 
 	}) 
  	
-	
 
-	   
 		FreshTime();
 		var sh;        
 		sh = setInterval(FreshTime, 1000); // 每秒钟执行一次
@@ -125,22 +123,35 @@ function FreshTime() {
 	document.getElementById("lefttime").innerHTML = "剩余<span>"+d+"</span> 天<span>" + h + "</span>小时<span>"  + m + "</span>分<span>" + s + "</span>秒";
 }      
 alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
-// $(function(){
-// 	var pagenow = 1; 
-// 	$('.')
-		$.ajax({ 
-		        url:'/cmapis/get?page=2&pageSize=10',
+get_ask_list(1);
+
+$(function(){        //根据点击的页面按钮，读取第几页面，并修改页码格式
+		 $(document).on('click', '.pages',function(){
+			var $self = $(this);
+			if (!$self.hasClass('active')) {
+			$self.addClass('active').siblings().removeClass('active');
+			var a = $self.val(); 
+			get_ask_list(a);
+			$(document).scrollTop($('.question').offset().top);
+			}
+		});
+});	
+
+
+function get_ask_list(page_num){     //根据输入参数page_num，读取第几页的数据
+		$.ajax({
+			    url:'/cmapis/getQues?page=' + page_num +'&pageSize=6',
 		        type:'GET',
 		        success: function(res){
 		            console.log(res.data.datas);    //res就是一个对象数组，这里你就可以操作他了
-		           	
+		           	$("#answer").html('');
 		             var tmp=new Array();
 				 	 for(var i=0;i<res.data.datas.length;i++){
 				      if('ans' in res.data.datas[i]){
 				 	 		var ask_name = res.data.datas[i].ask.name;
 							var ask_text = res.data.datas[i].ask.txt;
-							var a1 = new Date(res.data.datas[i].ask.time)
-							var ask_time = change_time(a1);  
+							var a1 = new Date(res.data.datas[i].ask.time)       //Date(time)将时间戳time转化成Date数据
+							var ask_time = change_time(a1);  					//change_time将Date数据转化成自定义数据
 							var ans_name = res.data.datas[i].ans.name;
 							var ans_text = res.data.datas[i].ans.txt;
 							var a2 = new Date(res.data.datas[i].ans.time)
@@ -165,8 +176,8 @@ alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用�
 		        }
 		});
 				
-
-function change_time(t){
+}
+function change_time(t){     //将Date数据，装换成自定义时间显示格式
 	var a=t.getFullYear()+"-"+(t.getMonth()+1)+"-"+t.getDate()+" "+t.getHours()+":"+t.getMinutes();
 	return a; 
 }
