@@ -1,0 +1,314 @@
+@charset 'utf-8';
+
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form, thead, tbody, tfoot, div, button, span {
+    
+margin: 0;
+ 
+padding: 0;
+
+}
+
+
+ol, ul {
+ 
+ margin: 0;
+    
+padding: 0;
+   
+ list-style-type: none;
+
+}
+
+
+html {
+    
+font-family: 'Microsoft Yahei', 'Î¢ÈíÑÅºÚ', sans-serif;
+    
+font-size: 20px;
+    
+width: 100%;
+    
+height: 100%;
+    
+-ms-text-size-adjust: 100%;
+    
+-webkit-text-size-adjust: 100%;
+
+}
+
+
+body {
+    
+font-size: 15px;
+    
+overflow-x: hidden;
+    /* -webkit-touch-callout:none;*/
+    
+width: 100%;
+    
+height: 100%;
+   
+ -webkit-user-select: text;
+    
+-moz-user-select: text;
+    
+-ms-user-select: text;
+   
+ user-select: text;
+    
+background-color: #efefef;
+    
+corlor: #333;
+    
+-webkit-text-size-adjust: none;
+    
+-moz-text-size-adjust: none;
+    
+-ms-text-size-adjust: none;
+    
+-o-text-size-adjust: none;
+    
+text-size-adjust: none;
+    
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
+
+div, input, textarea, select, button, ul, li, img, span, ::before, ::after {
+    
+-webkit-box-sizing: border-box;
+    
+-moz-box-sizing: border-box;
+   
+box-sizing: border-box;
+    
+border: none;
+    
+outline: none;
+
+}
+
+
+input, textarea {
+    
+padding: 0;
+    
+resize: none;
+    
+word-wrap: break-word;
+    
+word-break: break-all;
+   
+ border-radius: 0;
+    
+-webkit-appearance: none;
+
+}
+
+.mid_main{
+	width: 800px;
+	margin:0 auto;
+	background-color: white;	
+	z-index:1001;
+}
+
+#list_search_button{
+	width: 50px;
+	height: 30px;
+	cursor: pointer;
+}
+.box{
+	border: 1px solid #e7e7e7;
+}
+.title_box{
+	height: 36px;
+	padding:12px 0;
+	border-bottom: 1px solid #999999;
+
+/*text-align:center; */
+}
+.title_name{
+	margin-left:10px;
+}
+.title_ask{
+	margin-left:178px;
+}
+.title_heart{
+	margin-left:169px;
+}
+.title_time{
+	margin-left:62px;
+}
+.title_ops{
+	margin-left:93px;
+}
+
+
+#list_box{
+	width: 800px;
+	height: 700px;
+}
+.ans_list{
+	
+}
+
+.ans_inf{
+	list-style:none;
+	padding:20px 0;
+	border-bottom: 1px solid #999999;
+}
+
+.list_name{
+	width:78px;
+	/*font-weight:bold;*/
+	font-size: 16px;
+    color: #333333;
+	vertical-align: top;
+	
+	display: inline-block;
+
+}
+.list_ask{
+
+	/*word-break:break-all;*/
+	width: 308px;
+    color: #999999;
+	vertical-align: top;
+	
+	display: inline-block;
+}
+
+.list_heart{
+	width:103px;
+	color:#FB7373;
+	text-align: center;
+	vertical-align: top;
+	
+	display: inline-block;
+
+}
+.list_time{
+	width: 137px;
+	color: #999999;
+    text-align: center;
+	vertical-align: top;
+	
+	display: inline-block;
+}
+.list_link{
+	width:170px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	
+	display: inline-block;
+}
+
+#ans_back{
+	cursor: pointer;
+	color: #FF0000;
+}
+
+.ans_box{
+    margin-left: 20px;
+    width: 643px;
+}
+.ans_title{
+    display: inline-block;
+    vertical-align: top;
+}
+.ans_content{
+    display: inline-block;
+}
+.ans_name{
+    margin-right: 12px;
+    vertical-align: top;
+  
+}
+.ans_text{
+	display: inline-block;
+    color: #999999;
+    width: 352px;
+}
+
+.ans_time{
+	display: inline-block;
+    margin-left: 36px;
+    vertical-align: top;
+    color: #999999;
+}
+
+/*隐藏的弹出层   下面*/
+#back_hide{
+	width: 100%;
+	height: 100%;
+	background-color: #1E212B;
+	background: rgba(14, 10, 22,0.2) ;
+	filter:alpha(opacity=20); 
+	display: none;
+	position: fixed;
+	z-index:1002;
+}
+.answer{
+	height: auto;
+    width: 764px;
+    margin: 0px 0 6px 0;
+    /* border: 1px solid red; */
+}
+.answer-title{
+	width:764px;
+	height:30px;
+	border-bottom:1px solid #EBEBEA;
+	color:#747475;
+	font-size:20px;
+}
+.answer-title span{
+	border-bottom:2px solid #318FD8;
+	padding-bottom: 3px;
+}
+.answer-text-tab{
+	width:764px;
+	height:128px;
+	background-color:#F7F7F7;
+	margin-top: 24px;
+}
+#textarea_ans{
+	height:66px;
+	width:736px;
+	margin:12px 14px 0 12px;
+	font-size:14px;
+	/*color:#adadad;*/
+	background-color:#ffffff;
+	font-family:"微软雅黑";
+	padding-left: 8px;
+	outline: none;
+	resize:none;
+	overflow:auto;
+}
+
+#name_ans{
+	margin: 4px 0 0 12px;
+	padding-left: 8px;
+    font-size: 14px;
+    height: 27px;
+    font-family:"微软雅黑";
+  
+    outline: none;
+
+}
+#button_ans{
+	height: 36px;
+    width: 84px;
+    line-height: 36px;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    float: right;
+    background-color: #2797ef;
+    outline: none;
+    border: none;
+    margin: 3px 10px 0 0;
+    cursor: pointer;
+}
+/*隐藏的弹出层   上面*/

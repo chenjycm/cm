@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回答页面</title>
+	<link rel="stylesheet" type="text/css" href="./css/answer.css">
+	<script type="text/javascript" src="./js/answer.js"></script>
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="answer"><!--提问区及表单-->
+			<div class="answer-title"><span>回答区</span></div>
+			<div class="answer-text-tab">
+				<textarea id="textarea_ans" placeholder="请输入回答内容" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" ></textarea>
+				<input id="name_ans" placeholder="请输入名字" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+				<input id="button_ans" type="button" value="回答"/>
+			</div>
+		</div>  
+</body>
+</html>
