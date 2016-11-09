@@ -110,7 +110,7 @@ word-break: break-all;
 	width: 800px;
 	margin:0 auto;
 	background-color: white;	
-	z-index:1001;
+	
 }
 
 #list_search_button{
@@ -126,7 +126,6 @@ word-break: break-all;
 	padding:12px 0;
 	border-bottom: 1px solid #999999;
 
-/*text-align:center; */
 }
 .title_name{
 	margin-left:10px;
@@ -147,7 +146,7 @@ word-break: break-all;
 
 #list_box{
 	width: 800px;
-	height: 700px;
+	height: auto;
 }
 .ans_list{
 	
@@ -174,8 +173,7 @@ word-break: break-all;
 	/*word-break:break-all;*/
 	width: 308px;
     color: #999999;
-	vertical-align: top;
-	
+	vertical-align: top;	
 	display: inline-block;
 }
 
@@ -205,7 +203,7 @@ word-break: break-all;
 	display: inline-block;
 }
 
-#ans_back{
+.ans_back{
 	cursor: pointer;
 	color: #FF0000;
 }
@@ -213,6 +211,7 @@ word-break: break-all;
 .ans_box{
     margin-left: 20px;
     width: 643px;
+    margin-top: 6px;
 }
 .ans_title{
     display: inline-block;
@@ -229,7 +228,7 @@ word-break: break-all;
 .ans_text{
 	display: inline-block;
     color: #999999;
-    width: 352px;
+    width: 376px;
 }
 
 .ans_time{
@@ -240,51 +239,64 @@ word-break: break-all;
 }
 
 /*隐藏的弹出层   下面*/
-#back_hide{
+#back_ans{
 	width: 100%;
 	height: 100%;
-	background-color: #1E212B;
-	background: rgba(14, 10, 22,0.2) ;
-	filter:alpha(opacity=20); 
-	display: none;
 	position: fixed;
-	z-index:1002;
+	z-index:8;
+	display: none;
+}
+
+.back_cov{
+
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right:0;
+	background-color: #000000;
+	-moz-opacity: 0.6;
+	opacity:.60;
+	filter: alpha(opacity=60);
+	position: fixed;
+	z-index:9998;
 }
 .answer{
-	height: auto;
-    width: 764px;
-    margin: 0px 0 6px 0;
-    /* border: 1px solid red; */
+	top: 100px;
+	left:0;
+	right:0;
+	width: 451px;
+    height: 247px;
+    margin: auto;
+    background-color: #F7F7F7;
+    position: fixed;
+	z-index:9999;
+  
 }
-.answer-title{
-	width:764px;
-	height:30px;
-	border-bottom:1px solid #EBEBEA;
-	color:#747475;
-	font-size:20px;
-}
-.answer-title span{
-	border-bottom:2px solid #318FD8;
-	padding-bottom: 3px;
-}
-.answer-text-tab{
-	width:764px;
-	height:128px;
-	background-color:#F7F7F7;
-	margin-top: 24px;
+#ans_exit{
+	float: right;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 20px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    cursor: pointer;
 }
 #textarea_ans{
-	height:66px;
-	width:736px;
-	margin:12px 14px 0 12px;
-	font-size:14px;
-	/*color:#adadad;*/
-	background-color:#ffffff;
-	font-family:"微软雅黑";
-	padding-left: 8px;
-	outline: none;
-	resize:none;
-	overflow:auto;
+	height: 165px;
+    width: 430px;
+    margin: 12px 14px 0 12px;
+    font-size: 14px;
+    /* color: #adadad; */
+    background-color: #ffffff;
+    font-family: "微软雅黑";
+    padding-left: 8px;
+    outline: none;
+    resize: none;
+    overflow: auto;
 }
 
 #name_ans{
@@ -295,6 +307,7 @@ word-break: break-all;
     font-family:"微软雅黑";
   
     outline: none;
+  
 
 }
 #button_ans{
@@ -310,5 +323,6 @@ word-break: break-all;
     border: none;
     margin: 3px 10px 0 0;
     cursor: pointer;
+ 
 }
 /*隐藏的弹出层   上面*/

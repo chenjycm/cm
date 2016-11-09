@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="./js/list.js"></script>
 </head>
 <body>
-<div class="mid_main" >
+<div class="mid_main"  >
 	<p>校招在线宣讲会</p>
 	<div>
 		<span>回复</span>
@@ -23,8 +23,8 @@
 		</div>
 		<div id="list_box" >
 			<ul class="ans_list">
-				<li class="ans_inf">
-					<div class="list_name">连国华</div><div class="list_ask">我想请问一下暑期实习的投递截止日期事多少？</div><div class="list_heart">400</div><div class="list_time">2016-05-12 12:00</div><div class="list_link"><a id="ans_back">回复</a><span>|</span><a>审核通过</a><span>|</span><a>撤销</a></div>
+				<!-- <li class="ans_inf">
+					<div class="list_name">连国华</div><div class="list_ask">我想请问一下暑期实习的投递截止日期事多少？</div><div class="list_heart">400</div><div class="list_time">2016-05-12 12:00</div><div class="list_link"><a class="ans_back">回复</a><span>|</span><a>审核通过</a><span>|</span><a>撤销</a></div>
 					
 					<div class="ans_box">
 						<p class="ans_title">答：</p>
@@ -36,7 +36,7 @@
 					</div>
 
 					
-				</li>
+				</li> -->
 
 			</ul>
 		</div>
@@ -54,16 +54,17 @@
 	</div>
 </div>
 
-<div id="back_hide">
-		<div class="answer"><!--提问区及表单-->
-			<div class="answer-title"><span>回答区</span></div>
-			<div class="answer-text-tab">
-				<textarea id="textarea_ans" placeholder="请输入回答内容" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" ></textarea>
-				<input id="name_ans" placeholder="请输入名字" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
-				<input id="button_ans" type="button" value="回答"/>
-			</div>
-		</div>  
-	
+<div id="back_ans">
+		<div class="back_cov">			
+		</div>
+		<div class="answer">
+		    <p id="ans_exit">+</p>
+			<textarea id="textarea_ans" placeholder="请输入回答内容" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999" ></textarea>
+			<input id="name_ans" placeholder="请输入名字" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"/>
+			<button id="button_ans" >回答</button>			
+		</div>
+		
 </div>
+
 </body>
 </html>
