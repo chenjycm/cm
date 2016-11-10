@@ -11,9 +11,8 @@ $(document).ready(function(){
         		alert("请输入您的名字！");
         	}else{
         		var mydate = new Date();
-	       	 	var ask_time= change_time(mydate);
-				
-	      	 	var up_time=mydate.getTime();      //getTime是将Date数据转换成时间戳
+	       	 	var ask_time= change_time(mydate);			//这个用于显示	
+	      	 	var up_time=mydate.getTime();      //getTime是将Date数据转换成时间戳,这个时间用于上传
 				var data = {name:ask_name,txt:ask_text,time:up_time};
 			  	$.ajax({
 			   	 	url:'/cmapis/postQues',
