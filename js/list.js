@@ -115,6 +115,15 @@ $(function(){
 });	
 
 function change_time(t){     //将Date数据，装换成自定义时间显示格式
-	var a=t.getFullYear()+"-"+(t.getMonth()+1)+"-"+t.getDate()+" "+t.getHours()+":"+t.getMinutes();
+	var month = t.getMonth()+1;
+	var date = t.getDate();
+	var hour = t.getHours();
+	var minute = t.getMinutes();
+	var a=t.getFullYear()+"-"+addzero(month)+"-"+addzero(date)+" "+addzero(hour)+":"+addzero(minute);
 	return a; 
 }
+ function addzero(obj)  
+    {  
+        if(obj<10) return "0" +""+ obj;  
+        else return obj;  
+    }  
