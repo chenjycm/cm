@@ -829,7 +829,7 @@ html{
 	outline: none;
 	margin: 0 2px;
 }
-.pagespre{
+#pagespre{
 	height:35px;
 	width:64px;
 	border:1px solid #DDDCDF;
@@ -840,7 +840,7 @@ html{
 	outline: none;
     margin: 0 2px;
 }
-.pagesnext{
+#pagesnext{
 	height:35px;
 	width:64px;
 	border:1px solid #DDDCDF;

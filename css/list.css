@@ -175,6 +175,7 @@ word-break: break-all;
     color: #999999;
 	vertical-align: top;	
 	display: inline-block;
+	word-break: break-all;
 }
 
 .list_heart{
@@ -232,6 +233,7 @@ word-break: break-all;
 	display: inline-block;
     color: #999999;
     width: 359px;
+    word-break: break-all;
 }
 
 .ans_time{
@@ -333,3 +335,61 @@ word-break: break-all;
  
 }
 /*隐藏的弹出层   上面*/
+#bottom-button{
+	height:40px;
+	width:740px;
+	margin:50px auto;
+	text-align: center;
+	/*background-color: yellow;*/
+}
+
+
+.pages{
+	height:35px;
+	width:35px;
+	border:1px solid #DDDCDF;
+	color:#848484;
+	font-family: inherit;
+	background-color: white;
+	cursor: pointer;
+	outline: none;
+	margin: 0 2px;
+}
+
+.pages.active{
+	height:35px;
+	width:35px;
+	background-color:#52636D;
+	border:0;
+	color:white;
+	font-family: inherit;
+	cursor: pointer;
+	outline: none;
+	margin: 0 2px;
+}
+#pagespre{
+	height:35px;
+	width:64px;
+	border:1px solid #DDDCDF;
+	color:#848484;
+	font-family: inherit;
+	background-color: white;
+	cursor: pointer;
+	outline: none;
+    margin: 0 2px;
+}
+#pagesnext{
+	height:35px;
+	width:64px;
+	border:1px solid #DDDCDF;
+	color:#848484;
+	font-family: inherit;
+	background-color: white;
+	cursor: pointer;
+	outline: none;
+    margin: 0 2px;
+}
+.dian{
+	color: #060607;
+}
+
