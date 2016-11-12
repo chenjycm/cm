@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	
+	alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
+	get_ask_list(1);
+
     $("#button3").bind("click",function(){
-       
         var ask_name=$('#input_name').val();
         var ask_text=$('#textarea1').val(); 
         if(ask_text=="") {
@@ -28,7 +29,6 @@ $(document).ready(function(){
 				      alert("网络故障，提问未提交");
 				    }
 				});
-
 	      	 	$("#textarea1").val("");
 				$("#input_name").val("");
         	}
@@ -104,8 +104,7 @@ $(document).ready(function(){
 			$self.addClass('active').siblings().removeClass('active');
 			$('.list1,.list2').toggle();
 			}
-		});
-				  
+		});			  
 
 });		
 
@@ -121,8 +120,6 @@ function FreshTime() {
 	 // $("#lefttime").append(left_time);
 	document.getElementById("lefttime").innerHTML = "剩余<span>"+d+"</span> 天<span>" + h + "</span>小时<span>"  + m + "</span>分<span>" + s + "</span>秒";
 }      
-alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
-get_ask_list(1);
 
 $(function(){        //根据点击的页面按钮，读取第几页面，并修改页码格式
 		 $(document).on('click', '.pages',function(){
@@ -144,31 +141,30 @@ function get_ask_list(page_num){     //根据输入参数page_num，读取第几
 		        success: function(res){
 		            console.log(res.data.datas);    //res就是一个对象数组，这里你就可以操作他了
 		           	$("#answer").html('');
-		             var tmp=new Array();
-				 	 for(var i=0;i<res.data.datas.length;i++){
-				      if('ans' in res.data.datas[i]){
-				 	 		var ask_name = res.data.datas[i].ask.name;
-							var ask_text = res.data.datas[i].ask.txt;
-							var a1 = new Date(res.data.datas[i].ask.time)       //Date(time)将时间戳time转化成Date数据
+		             var get_print=new Array();
+				 	 for(var i=0,datas=res.data.datas,l=datas.length;i<l;i++){
+				 	 	tmp=datas[i];
+				      if('ans' in tmp){
+				 	 		var ask_name = tmp.ask.name;
+							var ask_text = tmp.ask.txt;
+							var a1 = new Date(tmp.ask.time)       //Date(time)将时间戳time转化成Date数据
 							var ask_time = change_time(a1);  					//change_time将Date数据转化成自定义数据
-							var ans_name = res.data.datas[i].ans.name;
-							var ans_text = res.data.datas[i].ans.txt;
-							var a2 = new Date(res.data.datas[i].ans.time)
+							var ans_name = tmp.ans.name;
+							var ans_text = tmp.ans.txt;
+							var a2 = new Date(tmp.ans.time)
 							var ans_time = change_time(a2);
 							var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div><div class='answer-big'><p class='answer-da'>答</p><div class='answer-text'><span class='answerer'>"+ans_name+"</span>"+ans_text+"<div class='ask-time'>"+ans_time+"</div></div></div></li>";
-							tmp.push($ask_ans);
-							//$("#answer").prepend($ask_ans);
+							get_print.unshift($ask_ans);
 						}else{
-							var ask_name = res.data.datas[i].ask.name;
-							var ask_text = res.data.datas[i].ask.txt;
-							var b = new Date(res.data.datas[i].ask.time)
+							var ask_name = tmp.ask.name;
+							var ask_text = tmp.ask.txt;
+							var b = new Date(tmp.ask.time)
 							var ask_time = change_time(b);
 							var $ask_ans="<li id ='ask-answer'><p class='ask'>问</p><div class='ask-text'><span class='asker'>"+ask_name+"</span>"+ask_text+"<div class='ask-time'>"+ask_time+"</div></div></li>";
-							//$("#answer").prepend($ask_ans);
-							tmp.push($ask_ans);
+							get_print.unshift($ask_ans);
 						}				
 				 	}
-				 	$("#answer").prepend(tmp);
+				 	$("#answer").prepend(get_print);
 		        },
 		        error: function(err){
 		          console.log('error:',err);
