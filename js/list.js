@@ -6,7 +6,7 @@ $(document).ready(function(){
 	            console.log(res.data.datas[0].ask_time);    //res就是一个对象数组，这里你就可以操作他了
 	           //	$(".ans_list").html('');
 	            var get_print=new Array(); 
-			 	for(var i=0,datas=res.data.datas,l=datas.length;i<l;i++){
+			 	for(var i=0,datas=res.data.datas,l=datas.length,tmp;i<l;i++){
 			 		tmp=datas[i];
 			      if('ans' in tmp){
 						var ask_id = tmp._id;
@@ -18,8 +18,8 @@ $(document).ready(function(){
 						var ans_text = tmp.ans.txt;
 						var a2 = new Date(tmp.ans.time)
 						var ans_time = change_time(a2);
-						var $ask_ans="<li class='ans_inf'><div class='list_name'>"+ask_name+"</div><div class='list_ask'>"+ask_text+"</div><div class='list_heart'>400</div><div class='list_time'>"+ask_time+"</div><div class='list_link' data-ids = '"+ask_id+"'><a class='ans_back'>回复</a><span>|</span><a>审核通过</a><span>|</span><a class='delet_text'>撤销</a></div><div class='ans_box'><p class='ans_title'>答：</p><div class='ans_content'><span class='ans_name'>"+ans_name+"</span><div class='ans_text'>"+ans_text+"</div><div class='ans_time'>"+ans_time+"</div></div></div></li>"
-						get_print.unshift($ask_ans);    
+						var $ask_ans="<li class='ans_inf'><div class='list_name'>"+ask_name+"</div><div class='list_ask'>"+ask_text+"</div><div class='list_heart'>400</div><div class='list_time'>"+ask_time+"</div><div class='list_link' data-ids = '"+ask_id+"'><a class='ans_back'>回复</a><span>|</span><a>审核通过</a><span>|</span><a class='delet_text'>撤销</a></div><div class='ans_box'><p class='ans_title'>答：</p><div class='ans_content'><div class='ans_name'>"+ans_name+"</div><div class='ans_text'>"+ans_text+"</div><div class='ans_time'>"+ans_time+"</div></div></div></li>"
+						get_print.push($ask_ans);    
 					}
 					else{
 						var ask_id = tmp._id;
@@ -28,7 +28,7 @@ $(document).ready(function(){
 						var b = new Date(tmp.ask.time);
 						var ask_time = change_time(b);
 						var $ask_ans="<li class='ans_inf'><div class='list_name'>"+ask_name+"</div><div class='list_ask'>"+ask_text+"</div><div class='list_heart'>400</div><div class='list_time'>"+ask_time+"</div><div class='list_link' data-ids = '"+ask_id+"'><a class='ans_back'>回复</a><span>|</span><a>审核通过</a><span>|</span><a class='delet_text'>撤销</a></div></li>";
-						get_print.unshift($ask_ans);
+						get_print.push($ask_ans);
 					}				
 			 	}
 			 	$(".ans_list").prepend(get_print);

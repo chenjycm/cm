@@ -797,9 +797,9 @@ html{
     color: #ADADAD;
     border-bottom: 1px solid #e7e7e7;
 }
-.bottom-button{
+#bottom-button{
 	height:40px;
-	width:500px;
+	width:740px;
 	margin:50px auto;
 	text-align: center;
 	/*background-color: yellow;*/
@@ -814,6 +814,8 @@ html{
 	font-family: inherit;
 	background-color: white;
 	cursor: pointer;
+	outline: none;
+	margin: 0 2px;
 }
 
 .pages.active{
@@ -824,6 +826,8 @@ html{
 	color:white;
 	font-family: inherit;
 	cursor: pointer;
+	outline: none;
+	margin: 0 2px;
 }
 .pagespre{
 	height:35px;
@@ -833,6 +837,8 @@ html{
 	font-family: inherit;
 	background-color: white;
 	cursor: pointer;
+	outline: none;
+    margin: 0 2px;
 }
 .pagesnext{
 	height:35px;
@@ -842,6 +848,11 @@ html{
 	font-family: inherit;
 	background-color: white;
 	cursor: pointer;
+	outline: none;
+    margin: 0 2px;
+}
+.dian{
+	color: #060607;
 }
 .right{
 	width:328px;

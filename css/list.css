@@ -219,21 +219,24 @@ word-break: break-all;
 }
 .ans_content{
     display: inline-block;
+    width: 594px;
 }
 .ans_name{
     margin-right: 12px;
     vertical-align: top;
+    display: inline-block;
+    width: 60px;
   
 }
 .ans_text{
 	display: inline-block;
     color: #999999;
-    width: 376px;
+    width: 359px;
 }
 
 .ans_time{
 	display: inline-block;
-    margin-left: 17px;
+    margin-left: 13px;
     vertical-align: top;
     color: #999999;
 }
