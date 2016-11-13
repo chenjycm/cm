@@ -129,9 +129,9 @@ $(document).ready(function(){
 	$(document).on('click', '.tab',function(){
 		var $self = $(this);
 		if (!$self.hasClass('active')) {
-		$self.addClass('active').siblings().removeClass('active');
-		$('.list1,.list2').toggle();
-				}
+			$self.addClass('active').siblings().removeClass('active');
+			$('.list1,.list2').toggle();
+		}
 	});			  
 
 
