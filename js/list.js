@@ -3,7 +3,21 @@ $(document).ready(function(){
 	var cur_page = 1;
 	get_ask_list(1);
 
-	
+	//导航条对下面标题的切换
+
+	$(document).on('click', '#message_com',function(){		
+		$('.title_box').show();
+		$('.title_box_2').hide();
+		get_ask_list(1);
+
+	});	
+	$(document).on('click', '#sign_com',function(){		
+		$('.title_box').hide();
+		$('.title_box_2').show();	
+		get_people_list(1);		
+	});			
+
+
 
 	       //根据点击的页面按钮，读取第几页面，并修改页码格式
 	$(document).on('click', '.pages',function(){
@@ -23,6 +37,44 @@ $(document).ready(function(){
 		cur_page-=1;
 		get_ask_list(cur_page);
  	});
+
+ 	function get_people_list(cur_page){
+ 		$(".ans_list").html('');
+ 		$.ajax({
+			    url:'/cmapis/getUsers?page=' + cur_page +'&pageSize=12',
+		        type:'GET',
+		        success: function(res){
+		            console.log(res);    //res就是一个对象数组，这里你就可以操作他了
+		           	$(".ans_list").html('');
+		          	var get_print = new Array();
+				 	for(var i=0,datas=res.data.datas,l=datas.length,tmp;i<l;i++){
+				 		tmp=datas[i];
+				      		var p_id = tmp._id;
+				 	 		var p_name = tmp.name;
+							var p_sex ;
+							if(tmp.sex==1){p_sex='男';}else{if(tmp.sex==2){p_sex='女';}else{ p_sex='Null';}}							
+							var p_mobile = tmp.mobile;
+							var p_email = tmp.email;
+							var p_major = tmp.major;
+							var p_degree;
+							if(tmp.degree==1){p_degree='高中';}else{if(tmp.degree==2){p_degree='大专';}else{if(tmp.degree==3){p_degree='本科';}else{if(tmp.degree==4){p_degree='硕士';}else{if(tmp.degree==5){p_degree='博士';}else{p_degree='Null';}}}}}
+							var p_school =  tmp.school;
+							var $peo_inf="<li class='people_inf'><div class='people_name'>"+p_name+"</div><div class='people_sex'>"+p_sex+"</div><div class='people_mobile'>"+p_mobile+"</div><div class='people_email'>"+p_email+"</div><div class='people_major'>"+p_major+"</div><div class='people_degree'>"+p_degree+"</div><div class='people_school'>"+p_school+"</div></li>"
+							get_print.push($peo_inf);    
+					}
+				 	$(".ans_list").prepend(get_print);
+				 	var total_pages = res.data.totalPage; 
+			 		setpages(total_pages,cur_page);
+			 		$(document).scrollTop($('.mid_main').offset().top);
+		        },
+		        error: function(err){
+		          console.log('error:',err);
+		        }
+		});
+
+
+
+ 	}
 
 
 	function get_ask_list(cur_page){     //根据输入参数page_num，读取第几页的数据
@@ -177,9 +229,7 @@ $(document).ready(function(){
 
 
 	$(function(){ 
-
-
-		$(document).on('click', '.ans_back',function(){              //回复内容
+		$(document).on('click', '.ans_back',function(){              //回复内容,将数据推送到服务器
 				var $self = $(this).parent(); 
 				var ask_ids= $self.data('ids');  console.log(ask_ids);
 				$('#back_ans').show();

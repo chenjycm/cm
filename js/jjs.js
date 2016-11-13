@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
+	//alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
 	var cur_page = 1;
 	get_ask_list(1);
 	FreshTime();       //获得市场
@@ -51,22 +51,44 @@ $(document).ready(function(){
 		var inputMajor=$('#in_major').val();
 		var inputEdu=$('#in_edu').val();        //find("option:selected").text();返回的值为option选中的值，而不是value=0,1,2
 		var inputSchool=$('#in_school').val();
-		if(inputName==""&inputGender==""&inputTeleph==""&inputEmail==""&inputMajor==""&inputEdu==""&inputSchool==""){
-			alert("未输入任何信息，请填写完整后提交！");
+		if(inputName==''||!(/^[a-zA-Z\u4e00-\u9fa5\s]{1,20}$/).test(inputName)){ alert('请输入正确的名字！中文/英文'); return false;}
+		if(inputGender==''||inputGender==0){ alert('请选择性别！'); return false;}
+		if(inputTeleph==''||!(/^\d{7,14}$/).test(inputTeleph)){alert('请输入有效的电话号码！电话号码为7~14位，且仅有数字'); return false;}
+		if(inputEmail==''||!(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/).test(inputEmail)){ alert('请输入电子邮箱！'); return false;}
+		if(inputMajor==''||!(/^[a-zA-Z\u4e00-\u9fa5\s]{1,20}$/).test(inputMajor)){alert('请输入正确的专业名称！中文/英文'); return false;}
+		if(inputEdu==''||inputEdu==0){alert('请选择学历！'); return false;}
+		if(inputSchool==''||!(/^[a-zA-Z\u4e00-\u9fa5\s]{1,20}$/).test(inputSchool)){alert('请输入正确的贵校名称！中文/英文'); return false;}
+		if(inputName==''&&inputGender==''&&inputTeleph==''&&inputEmail==''&&inputMajor==''&&inputEdu==''&&inputSchool==''){
+			return false;
 		}else{
-			var inputInfor={name:inputName,gender:inputGender,teleph:inputTeleph,email:inputEmail,major:inputMajor,edu:inputEdu,school:inputSchool};
-			//name:"inputName",gender:"inputGender",teleph:inputTeleph,email:inputEmail,major:inputMajor,edu:inputEdu,school:inputSchool
-			console.log("输入的值:");
-			console.log(inputInfor);
-			alert("提交信息：\n姓名："+inputInfor.name+"\n性别："+inputInfor.gender+"\n电话："+inputInfor.teleph+"\n邮箱："+inputInfor.email+"\n专业："+inputInfor.major+"\n学历："+inputInfor.edu+"\n学校："+inputInfor.school);
-			$("#in_name").val("");
-			$("#in_gender").val("");
-			$("#in_teleph").val("");
-			$("#in_email").val("");
-			$("#in_major").val("");
-			$("#in_edu").val("");
-			$("#in_school").val("");
-			}
+			var data={name:inputName,sex:inputGender,mobile:inputTeleph,email:inputEmail,major:inputMajor,degree:inputEdu,school:inputSchool};
+			$.ajax({
+			   	 	url:'/cmapis/addUser',
+			 	    type:'POST',
+				    data:data,
+				    success: function(res){
+				     	console.log(res);
+						console.log("提交信息：\n姓名："+data.name+",性别："+data.sex+",电话："+data.mobile+",邮箱："+data.email+",专业："+data.major+",学历："+data.degree+",学校："+data.school);
+						alert("提交信息：\n姓名："+data.name+",性别："+data.sex+",电话："+data.mobile+",邮箱："+data.email+",专业："+data.major+",学历："+data.degree+",学校："+data.school);
+						$("#in_name").val("");
+						$("#in_gender").val("");
+						$("#in_teleph").val("");
+						$("#in_email").val("");
+						$("#in_major").val("");
+						$("#in_edu").val("");
+						$("#in_school").val("");
+				    },
+				    error: function(err){
+				      console.log('error:',err);
+				      alert("网络故障，注册信息未提交！");
+				    }
+			});
+		}
+			
+
+
+
+		
  	});
 
 	$(function(){ 
@@ -101,14 +123,7 @@ $(document).ready(function(){
 		}); 
 	}) 
  	
-	$(document).on('click', '#pagesnext',function(){
-		cur_page+=1;
-		get_ask_list(cur_page);
- 	});
- 	$(document).on('click', '#pagespre',function(){
-		cur_page-=1;
-		get_ask_list(cur_page);
- 	});
+	
 
 
 	$(document).on('click', '.tab',function(){
@@ -116,7 +131,7 @@ $(document).ready(function(){
 		if (!$self.hasClass('active')) {
 		$self.addClass('active').siblings().removeClass('active');
 		$('.list1,.list2').toggle();
-		}
+				}
 	});			  
 
 
@@ -140,10 +155,22 @@ $(document).ready(function(){
 				$self.addClass('active').siblings().removeClass('active');
 				cur_page= $self.val();  console.log('当前页：'+cur_page);
 				get_ask_list(cur_page); 
-				
+				$(document).scrollTop($('.question').offset().top);
 			}
 		});
 	});	
+	$(document).on('click', '#pagesnext',function(){    //点击下一页
+		cur_page+=1;
+		get_ask_list(cur_page);
+		$(document).scrollTop($('.question').offset().top);
+ 	});
+ 	$(document).on('click', '#pagespre',function(){      //点击上一页
+		cur_page-=1;
+		get_ask_list(cur_page);
+		$(document).scrollTop($('.question').offset().top);
+ 	});
+
+
 
 
 	function get_ask_list(cur_page){     //根据输入参数page_num，读取第几页的数据
@@ -179,7 +206,7 @@ $(document).ready(function(){
 				 	$("#answer").prepend(get_print);
 				 	var total_pages = res.data.totalPage; 
 			 		setpages(total_pages,cur_page);
-			 		$(document).scrollTop($('.question').offset().top);
+			 		//$(document).scrollTop($('.question').offset().top);
 		        },
 		        error: function(err){
 		          console.log('error:',err);
