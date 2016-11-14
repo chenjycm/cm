@@ -2,9 +2,10 @@ $(document).ready(function(){
 
 	var cur_page = 1;
 	get_ask_list(1);
+	var storage=window.localStorage;
+
 
 	//导航条对下面标题的切换
-
 	$(document).on('click', '#message_com',function(){		
 		$('.title_box').show();
 		$('.title_box_2').hide();
@@ -37,7 +38,7 @@ $(document).ready(function(){
 		cur_page-=1;
 		get_ask_list(cur_page);
  	});
-//88888888888888888888888888888888888888888888888888888888888888888888888888888
+//888888888888888888888888888888888888888888  获得注册用户列表
  	function get_people_list(cur_page){
  		$(".ans_list").html('');
  		$.ajax({
@@ -60,7 +61,7 @@ $(document).ready(function(){
 							var p_degree;
 							if(tmp.degree==1){p_degree='高中';}else{if(tmp.degree==2){p_degree='大专';}else{if(tmp.degree==3){p_degree='本科';}else{if(tmp.degree==4){p_degree='硕士';}else{if(tmp.degree==5){p_degree='博士';}else{p_degree='Null';}}}}}
 							var p_school =  tmp.school;
-							var $peo_inf="<li class='people_inf'><div class='people_name'>"+p_name+"</div><div class='people_sex'>"+p_sex+"</div><div class='people_mobile'>"+p_mobile+"</div><div class='people_email'>"+p_email+"</div><div class='people_major'>"+p_major+"</div><div class='people_degree'>"+p_degree+"</div><div class='people_school'>"+p_school+"</div></li>"
+							var $peo_inf="<li class='people_inf'  data-ids = '"+p_id+"'><div class='people_name'>"+p_name+"</div><div class='people_sex'>"+p_sex+"</div><div class='people_mobile'>"+p_mobile+"</div><div class='people_email'>"+p_email+"</div><div class='people_major'>"+p_major+"</div><div class='people_degree'>"+p_degree+"</div><div class='people_school'>"+p_school+"</div></div><div class='people_delete'>删除</div></li>"
 							get_print.push($peo_inf);    
 					}
 				 	$(".ans_list").prepend(get_print);
@@ -78,7 +79,7 @@ $(document).ready(function(){
  	}
 
 
-	function get_ask_list(cur_page){     //根据输入参数page_num，读取第几页的数据
+	function get_ask_list(cur_page){     //获得 问答 列表。。。根据输入参数page_num，读取第几页的数据
 		$.ajax({
 			    url:'/cmapis/getQues?page=' + cur_page +'&pageSize=12',
 		        type:'GET',
@@ -195,7 +196,7 @@ $(document).ready(function(){
 				$self = $(this).parent(); 
 				ask_ids= $self.data('ids');  console.log(ask_ids);
 				$('#back_ans').show();
-				return $self;
+				$('#name_ans').val(storage.cmd_name);
 		}).on('click','#button_ans',function(){
 				var ans_text_send = $('#textarea_ans').val();
 				var ans_name_send =$('#name_ans').val();
@@ -216,7 +217,9 @@ $(document).ready(function(){
 						    success: function(res){
 						      console.log('提交回复内容：'+data);
 						    	$('#textarea_ans').val('');
-								$('#name_ans').val('');
+								//$('#name_ans').val('');
+
+								storage.cmd_name = ans_name_send;
 								$('#back_ans').hide();
 								var $ans= "<div class='ans_box'><p class='ans_title'>答：</p><div class='ans_content'><span class='ans_name'>"+ans_name_send+"</span><div class='ans_text'>"+ans_text_send+"</div><div class='ans_time'>"+ans_time_send+"</div></div></div></li>";
 								$self.closest('.ans_inf').children('.ans_box').remove();
@@ -234,14 +237,14 @@ $(document).ready(function(){
 		$('#ans_exit').bind('click',function(){
 			$('#back_ans').hide();
 			$('#textarea_ans').val('');
-			$('#name_ans').val('');
+			//$('#name_ans').val('');
 		});
 
 
 	});	
 
 	//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-		$(document).on('click','.delet_text',function(){      //删除内容
+		$(document).on('click','.delet_text',function(){      //删除问答数据
 			if(confirm("确定要删除数据吗？")){
 				var $self = $(this).parent(); 
 				var ask_ids= $self.data('ids');  console.log(ask_ids);
@@ -263,6 +266,38 @@ $(document).ready(function(){
 					});
 			}
 		});
+		///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+
+///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ 删除用户数据
+		$(document).on('click','.people_delete',function(){      //删除问答数据
+			if(confirm("确定要删除用户信息吗？")){
+				var $self = $(this).parent(); 
+				var p_ids= $self.data('ids');  console.log(p_ids);
+				var data = {id:p_ids};
+				$.ajax({
+				   	 	url:'/cmapis/delUser',
+				 	    type:'POST',
+					    data:data,
+					    success: function(res){
+					      console.log(res);
+					      $self.closest('.people_inf').slideUp(300).delay(800).queue(function(){
+								$self.closest('.people_inf').remove();
+							}); 
+					      },
+					    error: function(err){
+					      console.log('error:',err);
+
+					    }
+					});
+			}
+		});
+
+
+///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 	function change_time(t){     //将Date数据，装换成自定义时间显示格式
 		var month = t.getMonth()+1;
 		var date = t.getDate();

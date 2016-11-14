@@ -30,6 +30,7 @@ $(document).ready(function(){
 	      	 		  $("#answer").prepend($ask_ans);
 	      	 		  $("#textarea1").val("");
 					  $("#input_name").val("");
+					  console.log('发言成功');
 				    },
 				    error: function(err){
 				      console.log('error:',err);

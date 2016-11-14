@@ -107,9 +107,9 @@ word-break: break-all;
 }
 
 .mid_main{
-	width: 800px;
-	margin:0 auto;
-	background-color: white;	
+    width: 955px;
+    margin: 0 auto;
+    background-color: white;	
 	
 }
 .title_top{
@@ -118,6 +118,21 @@ word-break: break-all;
     text-align: center;
 	color: #387FFF;
     line-height: 45px;
+}
+.topNav{
+    display: inline-block;
+    vertical-align: top;
+   /* border-bottom: -2000px;
+    margin-bottom: 2000px;*/
+    width: 150px;
+    border: 0;
+   
+}
+
+.show_left{
+	display: inline-block;
+    width: 800px;
+    border: 4px solid #B5B5B5;
 }
 #list_search_button{
 	width: 50px;
@@ -135,12 +150,13 @@ word-break: break-all;
 	/*height: 36px;*/
 	padding:4px 0;
 	border-bottom: 1px solid #999999;
-
+	width: 796px;
 }
 .title_box_2{
 	/*height: 36px;*/
-	padding:4px 0;
-	border-bottom: 1px solid #999999;
+    padding: 4px 0;
+    border-bottom: 1px solid #999999;
+    width: 796px;
 
 }
 
@@ -164,7 +180,7 @@ word-break: break-all;
 
 
 .people_name_title{
-	width: 65px;
+	width: 55px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -178,14 +194,14 @@ word-break: break-all;
     text-align: center;    
 }
 .people_mobile_title{
-	    width: 85px;
+	    width: 73px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
 	text-align: center;
 }
 .people_email_title{
-	width: 182px;
+	width: 175px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -214,12 +230,12 @@ word-break: break-all;
 }
 
 .people_inf{
-
+    width: 796px;
     border-bottom: 1px solid #999999;
     min-height: 37px;
 }
 .people_name{
-	width: 76px;
+	width: 65px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -244,7 +260,7 @@ word-break: break-all;
 
 }
 .people_email{
-	width: 182px;
+	width: 160px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -253,7 +269,7 @@ word-break: break-all;
 }
 .people_major{
 
-    width: 167px;
+    width: 148px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -261,7 +277,7 @@ word-break: break-all;
     margin-bottom: 7px;
 }
 .people_degree{
-    width: 47px;
+    width: 42px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
@@ -269,11 +285,20 @@ word-break: break-all;
     margin-bottom: 7px;
 }
 .people_school{
-    width: 139px;
+    width: 134px;
     display: inline-block;
     vertical-align: top;
     margin-top: 7px;
     margin-bottom: 7px;
+    margin-right: 5px;
+}
+.people_delete{
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    color:#FA0331;
+    cursor: pointer;
 }
 
 #list_box{
@@ -281,13 +306,14 @@ word-break: break-all;
 	height: auto;
 }
 .ans_list{
-	
+
 }
 
 .ans_inf{
-	list-style:none;
-	padding:20px 0;
-	border-bottom: 1px solid #999999;
+    list-style: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #999999;
+    width: 796px;
 }
 
 .list_name{
@@ -526,11 +552,15 @@ word-break: break-all;
 }
 
 .topNav{
-	display:block; 
-	margin:0 auto 16px; 
-	border:0; 
-/*	position:relative; */
-	background-color:#007DAB; 
+    display: inline-block;
+/*    margin: 0 auto 16px;*/
+    vertical-align: top;
+   /* border-bottom: -2000px;
+    margin-bottom: 2000px;*/
+    width: 150px;
+    border: 0;
+    /* position: relative; */
+    /*background-color: #007DAB;*/
 	
 }
 
@@ -539,50 +569,50 @@ word-break: break-all;
 /* button   导航条的按钮样式 
 ---------------------------------------------- */ 
 .button { 
-display: inline-block; 
-zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */ 
-*display: inline; 
-vertical-align: baseline; 
-margin: 0 2px; 
-outline: none; 
-cursor: pointer; 
-text-align: center; 
-text-decoration: none; 
-font: 14px/100% Arial, Helvetica, sans-serif; 
-padding: .5em 2em .55em; 
-text-shadow: 0 1px 1px rgba(0,0,0,.3); 
--webkit-border-radius: .5em; 
--moz-border-radius: .5em; 
-border-radius: .5em; 
--webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
--moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+	/*display: inline-block; */
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */ 
+/*	*display: inline; */
+/*	vertical-align: baseline; */
+	margin: 3px 4px;
+	outline: none; 
+	cursor: pointer; 
+	text-align: center; 
+	text-decoration: none; 
+	font: 14px/100% Arial, Helvetica, sans-serif; 
+	padding: .5em 2em .55em; 
+	text-shadow: 0 1px 1px rgba(0,0,0,.3); 
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em; 
+	border-radius: .5em; 
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+	box-shadow: 0 1px 2px rgba(0,0,0,.2); 
 } 
 .button:hover { 
-text-decoration: none; 
+	text-decoration: none; 
 } 
 .button:active { 
-position: relative; 
-top: 1px; 
+	position: relative; 
+	top: 1px; 
 } 
 /* blue */ 
 .blue { 
-color: #d9eef7; 
-border: solid 1px #0076a3; 
-background: #0095cd; 
-background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); 
-background: -moz-linear-gradient(top, #00adee, #0078a5); 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5'); 
+	color: #d9eef7; 
+	border: solid 1px #0076a3; 
+	background: #0095cd; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); 
+	background: -moz-linear-gradient(top, #00adee, #0078a5); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5'); 
 } 
 .blue:hover { 
-background: #007ead; 
-background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e)); 
-background: -moz-linear-gradient(top, #0095cc, #00678e); 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e'); 
+	background: #007ead; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e)); 
+	background: -moz-linear-gradient(top, #0095cc, #00678e); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e'); 
 } 
 .blue:active { 
-color: #80bed6; 
-background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee)); 
-background: -moz-linear-gradient(top, #0078a5, #00adee); 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee'); 
+	color: #80bed6; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee)); 
+	background: -moz-linear-gradient(top, #0078a5, #00adee); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee'); 
 } 
