@@ -111,7 +111,7 @@ input, textarea {
     margin: 0 auto;
     background-color: #efefef;	
 	overflow: hidden;
-	position: absolute;
+	/*position: absolute;*/
 }
 .title_top{
 	height: 45px;
