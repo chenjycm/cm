@@ -1,0 +1,19 @@
+{
+  "name": "cm",
+  "version": "1.0.1",
+  "description": "this is my project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenjycm/cm.git"
+  },
+  "author": "cm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenjycm/cm/issues"
+  },
+  "homepage": "https://github.com/chenjycm/cm#readme"
+}
