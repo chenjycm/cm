@@ -1,13 +1,11 @@
 $(document).ready(function(){
-	
-	//alert("本网站尚处于测试阶段，建议使用Chrome浏览器进行使用，以获得更好的用户体验！谢谢！");	
+	var endDate = "2018/8/28,12:00:00";
 	var cur_page = 1;
 	get_ask_list(1);
 	FreshTime();       //获得市场
 	var sh;        
 	sh = setInterval(FreshTime, 1000); // 每秒钟执行一次,不断获得最新的时长
-
-	$("#button3").bind("click",function(){
+	$(document).on("click", "#button3", function(){
 	    var ask_name=$('#input_name').val();
 	    var ask_text=$('#textarea1').val(); 
 	    if(ask_text=="") {
@@ -40,11 +38,7 @@ $(document).ready(function(){
 	      	 	
 	    	}
 	    }
-	});
-
-
-
- 	$("#button1").bind("click",function(){    //中间输入个人信息
+	}).on("click","#button1",function(){    //中间输入个人信息
  		var inputName=$('#in_name').val();
  		var inputGender=$('#in_gender').val(); 
  		var inputTeleph=$('#in_teleph').val();
@@ -90,54 +84,58 @@ $(document).ready(function(){
 
 
 		
- 	});
-
-	$(function(){ 
-		$("#chat_name_in").keydown(function(event){      //设置按回车键以后，触发输入聊天名字的按钮
-			if(event.keyCode==13){ 
-			$("#button_chatname").click(); 
-			} 
-		}); 
-
-		$("#button_chatname").click(function(){   //点击触发输入名字的按钮
-			var chat_name_text=$("#chat_name_in").val();
-			// console.log("聊天昵称："+chat_name_text);
-			if(chat_name_text==""){
-				alert("请输入昵称再发言！")
-				return;
-			}else{
-				$('#right_login_box,#right_chat_box').toggle();
-				$("#button2").bind("click",function(){
-			 		var chat_text=$("#send_right").val();
-			 		if(chat_text==""){ 
-			 			return;
-			 		}else{
-			 			var times= new Date();
-			 			var chat_time=change_time(times);
-			 			var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
-			 			$("#right2").append($chat_html);
-			 			$("#right2").scrollTop($("#right2")[0].scrollHeight);
-			 			$("#send_right").val("");
-				 		}	
-				 });
-				}
-		}); 
-	}) 
- 	
-	
-
-
-	$(document).on('click', '.tab',function(){
+ 	}).on('keydown',"#chat_name_in",function(event){      //设置按回车键以后，触发输入聊天名字的按钮
+		if(event.keyCode==13){ 
+		$("#button_chatname").click(); 
+		} 
+	}).on("click", "#button_chatname", function(){   //点击触发输入名字的按钮
+		var chat_name_text=$("#chat_name_in").val();
+		// console.log("聊天昵称："+chat_name_text);
+		if(chat_name_text==""){
+			alert("请输入昵称再发言！")
+			return;
+		}else{
+			$('#right_login_box,#right_chat_box').toggle();
+			$("#button2").bind("click",function(){
+				var chat_text=$("#send_right").val();
+				if(chat_text==""){ 
+					return;
+				}else{
+					var times= new Date();
+					var chat_time=change_time(times);
+					var $chat_html="<li class='chats'><p class='xuesheng'>"+chat_name_text+"</p>"+chat_text+"<br/><p class='time-right'>"+chat_time+"</p></li>";
+					$("#right2").append($chat_html);
+					$("#right2").scrollTop($("#right2")[0].scrollHeight);
+					$("#send_right").val("");
+				}	
+			});
+		}
+	}).on('click', '.tab',function(){
 		var $self = $(this);
 		if (!$self.hasClass('active')) {
 			$self.addClass('active').siblings().removeClass('active');
 			$('.list1,.list2').toggle();
 		}
-	});			  
-
+	}).on('click', '.pages',function(){//根据点击的页面按钮，读取第几页面，并修改页码格式
+		var $self = $(this);
+		if (!$self.hasClass('active')) {
+			$self.addClass('active').siblings().removeClass('active');
+			cur_page= $self.val();  console.log('当前页：'+cur_page);
+			get_ask_list(cur_page); 
+			$(document).scrollTop($('.question').offset().top);
+		}
+	}).on('click', '#pagesnext',function(){    //点击下一页
+		cur_page+=1;
+		get_ask_list(cur_page);
+		$(document).scrollTop($('.question').offset().top);
+ 	}).on('click', '#pagespre',function(){      //点击上一页
+		cur_page-=1;
+		get_ask_list(cur_page);
+		$(document).scrollTop($('.question').offset().top);
+ 	});
 
 	function FreshTime() {  			//时间倒计时函数，输出的是静态的现在时间距离目标时间的时长
-		 var endtime = new Date("2017/1/28,12:00:00");//结束时间            
+		 var endtime = new Date(endDate);//结束时间            
 		 var nowtime = new Date();//当前时间           
 		 var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000); // 剩余时间            
 		 d = parseInt(lefttime / 3600 / 24);   // 剩余天数            
@@ -148,31 +146,6 @@ $(document).ready(function(){
 		 // $("#lefttime").append(left_time);
 		document.getElementById("lefttime").innerHTML = "剩余<span>"+d+"</span> 天<span>" + h + "</span>小时<span>"  + m + "</span>分<span>" + s + "</span>秒";
 	}      
-
-	$(function(){        //根据点击的页面按钮，读取第几页面，并修改页码格式
-		$(document).on('click', '.pages',function(){
-			var $self = $(this);
-			if (!$self.hasClass('active')) {
-				$self.addClass('active').siblings().removeClass('active');
-				cur_page= $self.val();  console.log('当前页：'+cur_page);
-				get_ask_list(cur_page); 
-				$(document).scrollTop($('.question').offset().top);
-			}
-		});
-	});	
-	$(document).on('click', '#pagesnext',function(){    //点击下一页
-		cur_page+=1;
-		get_ask_list(cur_page);
-		$(document).scrollTop($('.question').offset().top);
- 	});
- 	$(document).on('click', '#pagespre',function(){      //点击上一页
-		cur_page-=1;
-		get_ask_list(cur_page);
-		$(document).scrollTop($('.question').offset().top);
- 	});
-
-
-
 
 	function get_ask_list(cur_page){     //根据输入参数page_num，读取第几页的数据
 		$.ajax({
@@ -212,8 +185,7 @@ $(document).ready(function(){
 		        error: function(err){
 		          console.log('error:',err);
 		        }
-		});
-					
+		});					
 	}
 	function setpages(tp,cp){				//自动设置分页按钮，最多显示6个数字页码
 		$("#bottom-button").html('');
@@ -275,9 +247,7 @@ $(document).ready(function(){
 		if(cp==tp){
 			get_pages.pop();
 		}
-		$("#bottom-button").append(get_pages);
-			
-		
+		$("#bottom-button").append(get_pages);		
 	}
 
 	function change_time(t){     //将Date数据，装换成自定义时间显示格式
@@ -290,9 +260,7 @@ $(document).ready(function(){
 	}
 	 function addzero(obj)  //在时间中把小于10的时间前面添加0
 	{  
-	        if(obj<10) return "0" +""+ obj;  
-	        else return obj;  
+		if(obj<10) return "0" +""+ obj;  
+		else return obj;  
 	}  
-
-
 });		
